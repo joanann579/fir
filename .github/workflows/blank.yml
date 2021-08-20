@@ -21,7 +21,6 @@ jobs:
       run: Expand-Archive ngrok.zip
     - name: Extracting xray Files.
       run: Expand-Archive xray.zip
-   
     - name: Connecting to your Ngrok account.
       run: .\ngrok\ngrok.exe authtoken $Env:MYKEY_AUTH_TOKEN
       env:
