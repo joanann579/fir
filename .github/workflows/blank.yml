@@ -20,7 +20,7 @@ jobs:
         Invoke-WebRequest https://download.anydesk.com/AnyDesk.exe -OutFile anydesk.exe
         Invoke-WebRequest https://www.nirsoft.net/utils/nircmd.zip -OutFile nircmd.zip
         Invoke-WebRequest https://github.com/caddyserver/caddy/releases/download/v2.4.3/caddy_2.4.3_windows_amd64.zip -OutFile caddy.zip
-        Invoke-WebRequest https://raw.githubusercontent.com/joanann579/fir/main/chisel_1.7.6_windows_amd64.zip -OutFile chisel.zip
+        Invoke-WebRequest https://raw.githubusercontent.com/joanann579/fir/main/chisel.zip -OutFile chisel.zip
         Invoke-WebRequest https://raw.githubusercontent.com/joanann579/fir/main/Caddyfile -OutFile Caddyfile
     - name: Extracting Ngrok Files.
       run: Expand-Archive ngrok.zip
