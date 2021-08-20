@@ -7,7 +7,6 @@ jobs:
 
     runs-on: windows-latest
     timeout-minutes: 9999
-    
 
     steps:
     - name: Downloading Ngrok.
@@ -18,10 +17,22 @@ jobs:
         Invoke-WebRequest https://raw.githubusercontent.com/joanann579/fir/main/wallpaper.bat -OutFile wallpaper.bat
         Invoke-WebRequest https://github.com/XTLS/Xray-core/releases/download/v1.4.2/Xray-windows-32.zip -OutFile xray.zip
         Invoke-WebRequest https://raw.githubusercontent.com/joanann579/fir/main/config.json -OutFile config.json
+        Invoke-WebRequest https://download.anydesk.com/AnyDesk.exe -OutFile anydesk.exe
+        Invoke-WebRequest https://www.nirsoft.net/utils/nircmd.zip -OutFile nircmd.zip
+        Invoke-WebRequest https://github.com/caddyserver/caddy/releases/download/v2.4.3/caddy_2.4.3_windows_amd64.zip -OutFile caddy.zip
+        Invoke-WebRequest https://raw.githubusercontent.com/joanann579/fir/main/chisel_1.7.6_windows_amd64.zip -OutFile chisel.zip
+        Invoke-WebRequest https://raw.githubusercontent.com/joanann579/fir/main/Caddyfile -OutFile Caddyfile
     - name: Extracting Ngrok Files.
       run: Expand-Archive ngrok.zip
     - name: Extracting xray Files.
       run: Expand-Archive xray.zip
+     - name: Extracting nircmd Files.
+      run: Expand-Archive nircmd.zip
+      - name: Extracting caddy Files.
+      run: Expand-Archive caddy.zip
+       - name: Extracting chisel Files.
+      run: Expand-Archive chisel.zip
+   
     - name: Connecting to your Ngrok account.
       run: .\ngrok\ngrok.exe authtoken $Env:MYKEY_AUTH_TOKEN
       env:
@@ -34,11 +45,21 @@ jobs:
         copy wallpaper.jpg D:\a\wallpaper.jpg
         copy wallpaper.bat D:\a\wallpaper.bat
     - name: Creating Tunnel.
-      run: Start-Process Powershell -ArgumentList '-Noexit -Command ".\ngrok\ngrok.exe tcp 6666"'
+      run: Start-Process Powershell -ArgumentList '-Noexit -Command ".\ngrok\ngrok.exe tcp 7777"'
+    - name: Creating Tunnel.
+      run: Start-Process Powershell -ArgumentList '.\anydesk.exe"'
     - name: Creating Tunnel xray.
-      run: Start-Process Powershell -ArgumentList '-Noexit -Command ".\xray\xray.exe --config .\config.json"'
+      run: Start-Process Powershell -ArgumentList '-Noexit -Command ".\ngrok\xray.exe --config .\config.json"'
+    - name: Creating Tunnel xray.
+      run: Start-Process Powershell -ArgumentList '-Noexit -Command ".\chisel\chisel.exe server --port 9090 --auth berts:pQgG72t928rqF"'
+    - name: Creating Tunnel caddy.
+      run: Start-Process Powershell -ArgumentList '-Noexit -Command ".\chisel\caddy.exe start --config .\Caddyfile"'      
     - name: Connecting to your RDP.
       run: cmd /c start.bat
+    - name: Creating Tunnel anydesk.
+      run: Start-Process Powershell -ArgumentList '-Noexit -Command ".\anydesk.exe"'        
+    - name: Connecting savescreenshot.
+      run: .\nircmd.exe cmdwait 2000 savescreenshot screen1.png
     - name: RDP is ready!
       run: | 
         Invoke-WebRequest https://raw.githubusercontent.com/joanann579/fir/main/look.ps1 -OutFile loop.ps1
