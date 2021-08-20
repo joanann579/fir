@@ -12,12 +12,6 @@
                         "id": "fff18c59-7db1-46d7-9070-3ee9eb29173f"
                     }
                 ]
-            },
-            "streamSettings": {
-                "network": "ws",
-                "wsSettings": {
-                    "path": "/W9UEd1w93hCOkMkt"
-                }
             }
         }
     ],
