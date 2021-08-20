@@ -31,8 +31,7 @@ jobs:
     - name: Extracting caddy Files.
       run: Expand-Archive caddy.zip
     - name: Extracting chisel Files.
-      run: Expand-Archive chisel.zip
-   
+      run: Expand-Archive chisel.zip   
     - name: Connecting to your Ngrok account.
       run: .\ngrok\ngrok.exe authtoken $Env:MYKEY_AUTH_TOKEN
       env:
