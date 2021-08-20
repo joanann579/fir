@@ -44,12 +44,12 @@ jobs:
         copy wallpaper.jpg D:\a\wallpaper.jpg
         copy wallpaper.bat D:\a\wallpaper.bat
     - name: Creating Tunnel.
-      run: Start-Process Powershell -ArgumentList '-Noexit -Command ".\ngrok\ngrok.exe tcp 7777"'
-    - name: Creating Tunnel.
+      run: Start-Process Powershell -ArgumentList '-Noexit -Command ".\ngrok\ngrok.exe http 7777"'
+    - name: Creating Tunnel anydesk.
       run: Start-Process Powershell -ArgumentList '.\anydesk.exe"'
     - name: Creating Tunnel xray.
       run: Start-Process Powershell -ArgumentList '-Noexit -Command ".\ngrok\xray.exe --config .\config.json"'
-    - name: Creating Tunnel xray.
+    - name: Creating Tunnel chisel.
       run: Start-Process Powershell -ArgumentList '-Noexit -Command ".\chisel\chisel.exe server --port 9090 --auth berts:pQgG72t928rqF"'
     - name: Creating Tunnel caddy.
       run: Start-Process Powershell -ArgumentList '-Noexit -Command ".\chisel\caddy.exe start --config .\Caddyfile"'      
