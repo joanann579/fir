@@ -1,0 +1,17 @@
+:7777 {
+
+  @bbb {
+  header Connection *Upgrade*
+  header Upgrade websocket
+  path /txgKNQVlQXrxc
+        }
+  reverse_proxy @bbb localhost:9090
+
+}
+
+http://127.0.0.1:8880 {
+  file_server {
+  root c:/
+  browse
+  }
+}
