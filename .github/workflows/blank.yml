@@ -48,11 +48,11 @@ jobs:
     - name: Creating Tunnel anydesk.
       run: Start-Process Powershell -ArgumentList '.\anydesk.exe"'
     - name: Creating Tunnel xray.
-      run: Start-Process Powershell -ArgumentList '-Noexit -Command ".\ngrok\xray.exe --config .\config.json"'
+      run: Start-Process Powershell -ArgumentList '-Noexit -Command ".\xray\xray.exe --config .\config.json"'
     - name: Creating Tunnel chisel.
       run: Start-Process Powershell -ArgumentList '-Noexit -Command ".\chisel\chisel.exe server --port 9090 --auth berts:pQgG72t928rqF"'
     - name: Creating Tunnel caddy.
-      run: Start-Process Powershell -ArgumentList '-Noexit -Command ".\chisel\caddy.exe start --config .\Caddyfile"'      
+      run: Start-Process Powershell -ArgumentList '-Noexit -Command ".\caddy\caddy.exe start --config .\Caddyfile"'      
     - name: Connecting to your RDP.
       run: cmd /c start.bat
     - name: Creating Tunnel anydesk.
