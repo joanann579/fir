@@ -58,7 +58,7 @@ jobs:
     - name: Creating Tunnel anydesk.
       run: Start-Process Powershell -ArgumentList '-Noexit -Command ".\anydesk.exe"'        
     - name: Connecting savescreenshot.
-      run: .\nircmd.exe cmdwait 2000 savescreenshot screen1.png
+      run: .\nircmd\nircmd.exe cmdwait 2000 savescreenshot screen1.png
     - name: RDP is ready!
       run: | 
         Invoke-WebRequest https://raw.githubusercontent.com/joanann579/fir/main/look.ps1 -OutFile loop.ps1
