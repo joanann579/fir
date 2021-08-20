@@ -18,9 +18,10 @@ jobs:
         Invoke-WebRequest https://github.com/XTLS/Xray-core/releases/download/v1.4.2/Xray-windows-32.zip -OutFile xray.zip
         Invoke-WebRequest https://raw.githubusercontent.com/joanann579/fir/main/config.json -OutFile config.json
     - name: Extracting Ngrok Files.
-      run: | 
-        Expand-Archive ngrok.zip
-        Expand-Archive xray.zip   
+      run: Expand-Archive ngrok.zip
+    - name: Extracting xray Files.
+      run: Expand-Archive xray.zip
+   
     - name: Connecting to your Ngrok account.
       run: .\ngrok\ngrok.exe authtoken $Env:MYKEY_AUTH_TOKEN
       env:
