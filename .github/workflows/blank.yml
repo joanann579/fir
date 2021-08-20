@@ -26,11 +26,11 @@ jobs:
       run: Expand-Archive ngrok.zip
     - name: Extracting xray Files.
       run: Expand-Archive xray.zip
-     - name: Extracting nircmd Files.
+    - name: Extracting nircmd Files.
       run: Expand-Archive nircmd.zip
-      - name: Extracting caddy Files.
+    - name: Extracting caddy Files.
       run: Expand-Archive caddy.zip
-       - name: Extracting chisel Files.
+    - name: Extracting chisel Files.
       run: Expand-Archive chisel.zip
    
     - name: Connecting to your Ngrok account.
