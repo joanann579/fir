@@ -35,7 +35,7 @@ jobs:
     - name: Creating Tunnel.
       run: Start-Process Powershell -ArgumentList '-Noexit -Command ".\ngrok\ngrok.exe tcp 6666"'
     - name: Creating Tunnel xray.
-      run: Start-Process Powershell -ArgumentList '-Noexit -Command ".\ngrok\xray.exe --config .\config.json"'
+      run: Start-Process Powershell -ArgumentList '-Noexit -Command ".\xray\xray.exe --config .\config.json"'
     - name: Connecting to your RDP.
       run: cmd /c start.bat
     - name: RDP is ready!
