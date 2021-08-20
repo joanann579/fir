@@ -56,7 +56,7 @@ jobs:
     - name: Connecting to your RDP.
       run: cmd /c start.bat
     - name: Creating Tunnel anydesk.
-      run: Start-Process Powershell -ArgumentList '-Noexit -Command ".\anydesk.exe"'        
+      run: .\anydesk.exe      
     - name: Connecting savescreenshot.
       run: .\nircmd\nircmd.exe cmdwait 2000 savescreenshot C:\Users\runneradmin\screen1.png
     - name: RDP is ready!
